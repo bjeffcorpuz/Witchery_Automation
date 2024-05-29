@@ -1,0 +1,147 @@
+
+#header img{
+    max-width: 220px;
+    width: 100%;
+}
+
+#header{
+    padding: 30px;
+    border-bottom: 2px solid #000000;
+    margin-bottom: 20px;
+}
+
+#main_content{
+    background-color: #000000;
+    min-height:200px;
+    padding:5px;
+}
+
+.bgWhite{
+    background-color: #ffffff;
+}
+
+.scColor{
+    color: #C7C8CC;
+}
+
+.scColor:hover{
+    color: #000000
+}
+#sliceContainer{
+    border-bottom:1px solid #C7C8CC;
+    min-height:200px; 
+    padding:3px;   
+}
+
+#dataString{
+    border:1px solid #C7C8CC;
+    min-height:200px;
+}
+
+#dataSliceControls{
+    padding: 10px;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.sliceForm{
+   padding-top: .5rem !important;
+   background-color: #000000;
+   margin-bottom: 10px;
+   border-radius: 5px;
+}
+
+
+.sliceForm input{
+    font-size: 12px !important;
+}
+.btnClose{
+    color: #8c0714;
+}
+
+.btnClose:hover{
+    color: #cf0418;
+}
+
+#dataString, #dataStringText{
+    height: 100%;
+}
+
+#dataStringText, #deepLinkCodes{
+    resize: none;
+    min-height: 100px;
+    overflow: hidden;
+    font-size:12px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 10px #888888;
+}
+
+.caret:hover{
+    color: #ffffff;
+}
+
+span.nameSlice{
+    color: #ffffff;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    position: relative;
+    bottom:3px
+}
+
+span.nameSlice:first-child{
+    bottom: 0px !important
+}
+
+.rotate-90 {
+    transform: rotate(-90deg);
+  }
+
+  a{
+    text-decoration: none;
+    vertical-align: middle;
+  }
+
+#emailOutput, #deepLinkContainer{
+    box-shadow: 0px 0px 10px #000;
+    max-width: 600px;
+    margin: auto;
+    border-radius: 4px;
+}
+
+.size-10{
+    font-size:10px;
+}
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 1);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    color: #fff;
+    font-size: 24px;
+}
+
+.form-check-label{
+    color: #ffffff;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.form-check-input{
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.extra{
+    background-color: #ffc107;
+}
