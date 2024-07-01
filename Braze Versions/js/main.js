@@ -471,9 +471,9 @@ function emailCode(objData, action){
 <table class="full-width" width="600" border="0" align="center" cellpadding="0" cellspacing="0">
     <tbody>
         <tr>
-            <td valign="top" align="center" width="${objData.widths[0]}%"><a href="{{ Link${objData.sliceID[0]} }}" target="_blank" {{clicktracking}}style="font-family:Avenir, Helvetica, Arial, sans-serif; font-size:12px; color:#000000;"><img class="full-width" src="${objData.imgSrc[0]}" alt="${objData.imgAlt[0]}" width="300" height="auto" style="display: block; color: #54565b; font-family: sans-serif; font-size: 24px; width: 100%; max-width: 100%; margin: 0 !important;" border="0"></a></td>
+            <td valign="top" align="center" width="${objData.widths[0]}%"><a href="{{ Link${objData.sliceID[0]} }}?" target="_blank" {{clicktracking}}style="font-family:Avenir, Helvetica, Arial, sans-serif; font-size:12px; color:#000000;"><img class="full-width" src="${objData.imgSrc[0]}" alt="${objData.imgAlt[0]}" width="300" height="auto" style="display: block; color: #54565b; font-family: sans-serif; font-size: 24px; width: 100%; max-width: 100%; margin: 0 !important;" border="0"></a></td>
 
-            <td valign="top" align="center" width="${objData.widths[1]}%"><a href="{{ Link${objData.sliceID[1]} }}" target="_blank" {{clicktracking}}style="font-family:Avenir, Helvetica, Arial, sans-serif; font-size:12px; color:#000000;"><img class="full-width" src="${objData.imgSrc[1]}" alt="${objData.imgAlt[1]}" width="300" height="auto" style="display: block; color: #54565b; font-family: sans-serif; font-size: 24px; width: 100%; max-width: 100%; margin: 0 !important;" border="0"></a></td>
+            <td valign="top" align="center" width="${objData.widths[1]}%"><a href="{{ Link${objData.sliceID[1]} }}?" target="_blank" {{clicktracking}}style="font-family:Avenir, Helvetica, Arial, sans-serif; font-size:12px; color:#000000;"><img class="full-width" src="${objData.imgSrc[1]}" alt="${objData.imgAlt[1]}" width="300" height="auto" style="display: block; color: #54565b; font-family: sans-serif; font-size: 24px; width: 100%; max-width: 100%; margin: 0 !important;" border="0"></a></td>
         </tr>
     </tbody>
 </table>         
@@ -507,7 +507,7 @@ ${code}
     <tbody>
         <tr>
             <td valign="top" align="center">
-            <a href="{{ Link${objData.sliceID} }}" target="_blank" {{clicktracking}}style="font-family:Avenir, Helvetica, Arial, sans-serif; font-size:12px; color:#000000;" >
+            <a href="{{ Link${objData.sliceID} }}?" target="_blank" {{clicktracking}}style="font-family:Avenir, Helvetica, Arial, sans-serif; font-size:12px; color:#000000;" >
             <img class="full-width" src="${objData.imgSrc}" width="600" height="auto" style="display: block; color: #54565b; font-family: sans-serif; font-size: 24px; width: 100%; max-width: 100%; margin: 0 !important;" border="0" alt="${objData.imgAlt}">
             </a></td>
         </tr>
