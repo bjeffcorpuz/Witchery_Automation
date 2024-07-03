@@ -661,14 +661,12 @@ function setTierLinks(tierArray,sliceArray,coreLinkArray){
 }
 
 function printAmpscript(){
- 
-    let deeplinks = `
-\t{% comment %} Deep link code {% endcomment %}
-\t<span style="font-size:0px;line-height:0px;">
-\t{% assign clicktracking = 'clicktracking=off ' %}
+ console.log(tierLinks.gold.length + " " + tierLinks.silver.length + " " + tierLinks.bronze.length + " " + tierLinks.member.length);
 
-\t{% if \${country} == 'AU' %}  
-
+    let tier = '';
+    //check if needed to add the tier  conditions
+    if(tierLinks.gold.length > 0 && tierLinks.silver.length > 0 && tierLinks.bronze.length > 0 && tierLinks.member.length > 0){
+        tier = `
 \t\t{% comment %} Tiers Links {% endcomment %} 
 
 \t\t{% case tier %}
@@ -680,10 +678,19 @@ ${tierLinks.silver}
 ${tierLinks.bronze}
 \t\t{% else %}
 ${tierLinks.member}
-\t\t{% endcase %}
+\t\t{% endcase %}   
 
+        `
+    }
+
+    let deeplinks = `
+\t{% comment %} Deep link code {% endcomment %}
+\t<span style="font-size:0px;line-height:0px;">
+\t{% assign clicktracking = 'clicktracking=off ' %}
+
+\t{% if \${country} == 'AU' %}  
+${tier}
 ${insideAU}
-
 \t{% else %}
 
 \t\t{% comment %} Set other countries links {% endcomment %}
