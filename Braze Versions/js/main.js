@@ -3,6 +3,7 @@
 let gblSliceTbl = $("#sliceContainer");
 let gblObjData = [];
 let outContriesLinks = "";
+let insideAU = "";
 let gblNoDeepLinks = "";
 let linksChecker = [];
 let tierLinks = {};
@@ -553,20 +554,30 @@ function setAmpscript(objData) {
                     gblNoDeepLinks += `\t\t{% assign Link${objData.sliceID[x]} = BaseURL | append: '${objData.coreLink[x]}' %}\n`; 
 
                 }else{
-
                     //with deeplinks
 
-                    //gold deeplinks
-                    tierLinks.gold += (objData.goldTier[x]) ? `\t\t{% assign Link${objData.sliceID[x]} = '${objData.goldTier[x]}' %}\n` : `\t\t{% assign Link${objData.sliceID[x]} = BaseURL | append: '${objData.coreLink[x]}' %}\n`;
-                    
-                    //silver deeplinks
-                    tierLinks.silver += (objData.silverTier[x]) ? `\t\t{% assign Link${objData.sliceID[x]} = '${objData.silverTier[x]}' %}\n` : `\t\t{% assign Link${objData.sliceID[x]} = BaseURL | append: '${objData.coreLink[x]}' %}\n`;
+                    //checking if all tier have deeplinks
+                    if(objData.goldTier[x] && objData.silverTier[x] && objData.bronzeTier[x] && objData.memberTier[x]){
+                        tierLinks.gold += `\t\t{% assign Link${objData.sliceID[x]} = '${objData.goldTier[x]}' %}\n`;
+                        tierLinks.silver += `\t\t{% assign Link${objData.sliceID[x]} = '${objData.silverTier[x]}' %}\n`;
+                        tierLinks.bronze += `\t\t{% assign Link${objData.sliceID[x]} = '${objData.bronzeTier[x]}' %}\n`;
+                        tierLinks.member += `\t\t{% assign Link${objData.sliceID[x]} = '${objData.memberTier[x]}' %}\n`;
+                    }else{
+                        //if only one or three of the tier have deeplink, only assign one variable for them
+                        //putting the value
+                        let tlinks = [objData.goldTier[x], objData.silverTier[x], objData.bronzeTier[x], objData.memberTier[x]];
+                        let insideLink = '';
 
-                    //bronze deeplinks
-                    tierLinks.bronze += (objData.bronzeTier[x]) ? `\t\t{% assign Link${objData.sliceID[x]} = '${objData.bronzeTier[x]}' %}\n` : `\t\t{% assign Link${objData.sliceID[x]} = BaseURL | append: '${objData.coreLink[x]}' %}\n`;               
+                        for (let l = 0; l < tlinks.length; l++) {
+                            //have value, then save
+                            if(tlinks[l]){
+                                insideLink = `\t\t{% assign Link${objData.sliceID[x]} = '${tlinks[l]}'  %}\n`;
+                            }
+                            
+                        }
 
-                    //member deeplinksmember
-                    tierLinks.member += (objData.memberTier[x]) ? `\t\t{% assign Link${objData.sliceID[x]} = '${objData.memberTier[x]}' %}\n` : `\t\t{% assign Link${objData.sliceID[x]} = BaseURL | append: '${objData.coreLink[x]}' %}\n`;                  
+                        insideAU += insideLink;
+                    }               
 
                     //other countries links
                     outContriesLinks += `\t\t{% assign Link${objData.sliceID[x]} = BaseURL | append: '${objData.coreLink[x]}' %}\n`;              
@@ -587,40 +598,29 @@ function setAmpscript(objData) {
                 gblNoDeepLinks += `\t\t{% assign Link${objData.sliceID} = BaseURL | append: '${objData.coreLink}' %}\n`;            
 
             }else{
-                //gold deeplinks
-                if(objData.goldTier){
-                    //have value
-                    tierLinks.gold += `\t\t{% assign Link${objData.sliceID} = '${objData.goldTier}' %}\n`;
-                }else{
-                    //get other countries link
-                    tierLinks.gold += `\t\t{% assign Link${objData.sliceID} = BaseURL | append: '${objData.coreLink}' %}\n`;
-                }
-                
-                //silver deeplinks
-                if(objData.silverTier){
-                    //have value
-                    tierLinks.silver += `\t\t{% assign Link${objData.sliceID} = '${objData.silverTier}' %}\n`;
-                }else{
-                    //get other countries link
-                    tierLinks.silver += `\t\t{% assign Link${objData.sliceID} = BaseURL | append: '${objData.coreLink}' %}\n`;
-                }
-                
-                //bronze deeplinks
-                if(objData.bronzeTier){
-                    //have value
-                    tierLinks.bronze += `\t\t{% assign Link${objData.sliceID} = '${objData.bronzeTier}' %}\n`;
-                }else{
-                    //get other countries link
-                    tierLinks.bronze += `\t\t{% assign Link${objData.sliceID} = BaseURL | append: '${objData.coreLink}' %}\n`;
-                }
 
-                //member deeplinks
-                if(objData.memberTier){
-                    //have value
+                //checking if all tier have deeplinks
+                if(objData.goldTier && objData.silverTier && objData.bronzeTier && objData.memberTier){
+                    tierLinks.gold += `\t\t{% assign Link${objData.sliceID} = '${objData.goldTier}' %}\n`;
+                    tierLinks.silver += `\t\t{% assign Link${objData.sliceID} = '${objData.silverTier}' %}\n`;
+                    tierLinks.bronze += `\t\t{% assign Link${objData.sliceID} = '${objData.bronzeTier}' %}\n`;
                     tierLinks.member += `\t\t{% assign Link${objData.sliceID} = '${objData.memberTier}' %}\n`;
                 }else{
-                    //get other countries link
-                    tierLinks.member += `\t\t{% assign Link${objData.sliceID} = BaseURL | append: '${objData.coreLink}' %}\n`;
+                    //if only one or three of the tier have deeplink, only assign one variable for them
+                    //putting the value
+                    let tlinks = [objData.goldTier, objData.silverTier, objData.bronzeTier, objData.memberTier];
+                    let insideLink = '';
+
+                    for (let l = 0; l < tlinks.length; l++) {
+                        //have value, then save
+                        if(tlinks[l]){
+                            insideLink = `\t\t{% assign Link${objData.sliceID} = '${tlinks[l]}' %}\n`
+                        }
+                        
+                    }
+
+                    insideAU += insideLink;
+
                 }
                 
                 //other countries links
@@ -665,6 +665,8 @@ function printAmpscript(){
     let deeplinks = `
 \t{% comment %} Deep link code {% endcomment %}
 \t<span style="font-size:0px;line-height:0px;">
+\t{% assign clicktracking = 'clicktracking=off ' %}
+
 \t{% if \${country} == 'AU' %}  
 
 \t\t{% comment %} Tiers Links {% endcomment %} 
@@ -679,6 +681,8 @@ ${tierLinks.bronze}
 \t\t{% else %}
 ${tierLinks.member}
 \t\t{% endcase %}
+
+${insideAU}
 
 \t{% else %}
 
@@ -1019,6 +1023,7 @@ $(document).on('input',".sliceID",function(){
 $(document).on('click','#btnPrint',function(){
     gblObjData = []; //resetting
     outContriesLinks = ""; //resetting
+    insideAU = ""; //resetting
     gblNoDeepLinks = ""; // resetting
     linksChecker = []; //resetting
     $("#duplicateLink").remove() // removing the alert on duplicate links
