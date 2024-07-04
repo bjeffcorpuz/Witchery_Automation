@@ -685,7 +685,7 @@ ${tierLinks.member}
 
     let deeplinks = `
 \t{% comment %} Deep link code {% endcomment %}
-\t<span style="font-size:0px;line-height:0px;">
+\t<!--
 \t{% assign clicktracking = 'clicktracking=off ' %}
 
 \t{% if \${country} == 'AU' %}  
@@ -700,7 +700,7 @@ ${outContriesLinks}
 \t\t{% comment %} No Deep Links {% endcomment %}
 ${gblNoDeepLinks}
 
-\t</span>  
+\t--> 
     `    
 
     $("#tempo").text(deeplinks)
