@@ -661,7 +661,7 @@ function setTierLinks(tierArray,sliceArray,coreLinkArray){
 }
 
 function printAmpscript(){
- console.log(tierLinks.gold.length + " " + tierLinks.silver.length + " " + tierLinks.bronze.length + " " + tierLinks.member.length);
+//  console.log(tierLinks.gold.length + " " + tierLinks.silver.length + " " + tierLinks.bronze.length + " " + tierLinks.member.length);
 
     let tier = '';
     //check if needed to add the tier  conditions
