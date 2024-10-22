@@ -3,155 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
-    
-    <title>Document</title>
+    <title>Witchery Autobuilder</title>
 </head>
 <body>
+    
+    <div class="cointainer max-1200 text-center">
 
-      <!-- header -->
-      <div class="container text-center">
-        <div class="row align-items-center">
-          <div class="col" id="header">
-            <img src="https://image.e.witchery.com.au/lib/fe9012727d60077876/m/1/SALE_Dec_Edit_updated_03.png" alt="Witchery">
-          </div>
+        <!-- Logo -->
+        <div class="container text-center">
+            <div class="row">
+                <img src="https://braze-images.com/appboy/communication/assets/image_assets/images/667cd669ed04c3005a3d1a2e/original.png?1719457384" alt="Witchery Logo" class="logo">
+            </div>
         </div>
-      </div>
 
-      <!-- main content -->
-      <div class="container text-center" id="main_content">
-        <div class="row g-1">
-          <div class="col-9">
-            <div class="container bgWhite text-start">
-              <div class="row">
-                <div class="col">
-                  <h2>Data Slices</h2>
+        <!-- Content -->
+         <div class="container">
+            <div class="row">
+                <!-- Content -->
+                <div class="col-3">
+                    <div class="row">
+                        <div class="col-12 nopad cbContainer">
+                            <div class="header bg1">
+                                Build 
+                            </div>
+                            <div class="contentBuilder">
+                        
+                            </div>
+                            <div class="floatingIcon clearfix">
+                                <i class="fa-solid fa-eye buildIcon float-start" title="Preview Build" id="previewBuild"></i>
+                                <i class="fa-solid fa-square-plus buildIcon float-end" title="Add Block" id="addBlock"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preview -->
+                <div class="col-9 preview pad1 mb-3" id="errorPrep">
+                    
+                    <div class="sticky">
+                        <div class="header text-center">
+                            Data Forms 
+                        </div>
+                        <div class="container-fluid" style="border: 1px solid #ccc">
+                            <div class="row" id="formContainer">
+    
+                            </div>
+                        </div>
+                        <div class="header text-center">
+                            Preview
+                        </div>
+                        <div class="container-fluid text-center" style="border: 1px solid #ccc; border-bottom: 0px;">
+                            <div class="text-center" id="previewContainer">
+                                
+                            </div>
+                        </div>
+                        <div class="container-fluid" id="btnContainer" style="border: 1px solid #ccc; padding: 20px 0 10px; border-top: 0px; display: none;">
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLiquid" aria-controls="offcanvasScrolling"><i class="fa-regular fa-clipboard" aria-hidden="true"></i>Show Liquid Code</button>
+                                <button class="btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" id="sdata"><i class="fa-solid fa-scroll"></i>Show Data String</button>
+                                <button class="btn btn-primary me-md-2" type="button" id="copybuild"><i class="fa-solid fa-copy"></i>Copy Html</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-9 preview pad1">
+                    
+                </div>
+            </div>
+         </div>
+
+
+         <!-- Sliding Down -->
+          <div style="position: absolute; top: -1000px; display: none;">
+            <div id="contentSelection">
+                <div class="header text-center" id="changeHeader">Select Content</div>
+                <div class="container" style="max-width: 100%; width: 100%;">
+                    <div class="row">
+                        <div class="col-4">
+                            <i class="fa-solid fa-image selectContent" title="Image Only"></i>
+                            <div class="desc">Image Only</div>
+                        </div>
+                        <div class="col-4">
+                            <i class="fa-solid fa-link selectContent" title="Linked Image"></i>
+                            <div class="desc">Linked Image</div>
+                        </div>
+                        <div class="col-4">
+                            <i class="fa-solid fa-font selectContent" title="Live Text"></i>
+                            <div class="desc">Live Text</div>
+                        </div>
+                        <div class="col-12 header" id="selectionCtas">
+                            <button type="button" class="btn btn-danger removeElement">Remove Element</button>
+                            <button type="button" class="btn btn-secondary closeSelection">Close</button>
+                        </div>
+                    </div>
                 </div>
               </div>
-            </div>
-
-            <div id="sliceContainer" class="bgWhite sortable">     
-      
-            </div>
-
-            <div class="container">
-              <div class="row bgWhite" id="dataSliceControls">
-                <div class="col-6 text-start">
-                  <i style="font-size:24px" class="fa pointer scColor" id="btnPrint" title="Print">&#xf02f;</i>
-                </div>
-                <div class="col-6 text-end bgWhite">
-                  <i style="font-size:24px" class="fa pointer scColor" id="btnAdd" title="Add Slice" data-bs-toggle="modal" data-bs-target="#addSlice">&#xf0fe;</i>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-3">
-            <div id="dataString" class="bgWhite">
-              <div class="container bgWhite text-start">
-                <div class="row">
-                  <div class="col-12">
-                    <h2>Data String</h2>
-                  </div>
-                  <div class="col-12">
-                    <textarea class="form-control" aria-label="With textarea" id="dataStringText"></textarea>
-                  </div>
-                  <div class="col-12 text-end mt-2">
-                    <i style="font-size:20px" class="fa float-start pointer scColor" title="Load Data" id="LoadData">&#xf01e;</i>
-                    <i style="font-size:20px" class="fa pointer scColor mb-2" title="Copy Data String" id="copyDataString">&#xf24d;</i>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           
-        </div>
-      </div>
+          <!-- Content Container -->
+           <div id="contentContainer">
+            
+           </div>
 
-      <!-- Email HTML output -->
-      <div class="container">
-        <div class="row">
-          <div class="col-9">
-            <div class="row mt-4" id="emailOutput">
-              <div class="col-12 text-center mt-3 mb-3">
-                <h4>Email Preview</h4>
-              </div>
-              <div class="col-9" style="padding:0px">
-                <div id="emailCode"></div>
-              </div>
-              <div class="col-12 text-end mt-3 mb-3">
-                <i style="font-size:24px" class="fa pointer scColor" id="copyEmailCode">&#xf121;</i>
-              </div>
+           <!-- object string container -->
+           <div class="offcanvas offcanvas-top" data-bs-backdrop="static" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasTopLabel">Data</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-          </div>
-
-          <div class="col-3">
-            <div class="row">
-              <div class="col-12 text-center mt-4 mb-3" id="deepLinkContainer">
-                <h4 class="mt-3">Deeplinks Code</h4>
-                <div class="col-12 mb-3 text-start size-10" >
-                  <pre id="tempo" class="text-start"></pre>
-                  <!-- <textarea class="form-control" aria-label="With textarea" id="deepLinkCodes" disabled></textarea> -->
-                </div>
-                <div class="col-12 text-end mt-2">
-                  <i style="font-size:20px" class="fa pointer scColor mb-2" title="Copy Deeplink Codes" id="copyDeepLinkCode">&#xf24d;</i>
+            <div class="offcanvas-body">
+              <div class="container-fluid">
+                <textarea id="objString" style="width: 100%" disabled></textarea>
+              </div>
+              <div class="container-fluid nopad">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                    <button class="btn btn-info" type="button" id="copyDataString"><i class="fa-regular fa-clipboard"></i>Copy Data</button>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- Liquid Script Container -->
+           
+        <div class="offcanvas offcanvas-start liquidContainer" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasLiquid" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Liquid Code</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body text-end">
+            <textarea name="" id="LiquidCode"></textarea>
+            <button type="button" class="btn btn-success" id="copyLiquidString"><i class="fa-regular fa-clipboard" aria-hidden="true"></i>Copy Liquid Code</button>
+            </div>
         </div>
-      </div>
 
-      <!-- Loading -->
-      <div id="loading-screen">
-        <div class="d-flex justify-content-center">
-          <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-          <p style="margin-left: 10px" id="LoadingText"></p>
-        </div>        
+    </div> 
+
+    <!-- Loading -->
+    <div class="container-loading">
+        <div class="loading-container">
+            <div class="loading-text">
+                <span>G</span><span>e</span><span>n</span><span>e</span><span>r</span><span>a</span><span>t</span><span>i</span><span>n</span><span>g</span>
+            </div>
+            <div class="spinner"></div>
+        </div>
     </div>
-      <!-- Modal -->
-      <!-- Add Slice Modal -->
-      <div class="modal fade" id="addSlice" tabindex="-1" aria-labelledby="addSlice" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Choose Column</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="oneColumn">1 Column</button>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="twoColumn">2 Columns</button>
-              <button type="button" class="btn btn-info" data-bs-dismiss="modal" id="oneColumnCustom">Custom Block</button><br><br>
-              <button type="button" class="btn btn-warning" data-bs-dismiss="modal" id="oneColumnExtra">1 Column</button>
-              <button type="button" class="btn btn-warning" data-bs-dismiss="modal" id="twoColumnExtra">2 Columns</button>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
 
-
-
-
-      <div class="container" style="display: none;">
-        <div class="row">
-            <div class="col-12" style="border:1px solid black">.col-9</div>
-          <div class="col-9" style="border:1px solid black">.col-9</div>
-          <div class="col-4" style="border:1px solid black">.col-4<br>Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.</div>
-          <div class="col-6" style="border:1px solid black">.col-6<br>Subsequent columns continue along the new line.</div>
-        </div>
-      </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>  
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>  
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script src="js/main.js"></script>    
+<script src="https://kit.fontawesome.com/9876c9437c.js" crossorigin="anonymous"></script>
 </body>
 </html>
