@@ -1115,11 +1115,12 @@ ${tierLinks.memberTier}
 {% assign clicktracking = 'clicktracking=off ' %}
 
 {% if \${country} == 'Australia' or \${country} == 'AU' %}  
-${tier}
+\t{% assign clicktracking = 'clicktracking=off ' %}${tier}
 ${auLinks}
 {% else %}
 
 {% comment %} Set other countries links {% endcomment %}
+\t{% assign clicktracking = '' %}
 ${nzLinks}
 {% endif %}
 
